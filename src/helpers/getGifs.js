@@ -1,3 +1,6 @@
+import PropTypes from 'prop-types';
+
+
 export const getGifs = async( category ) => {
 
     const url = `https://api.giphy.com/v1/gifs/search?api_key=kaJ1JwD4CuQgYun7YpTQpTr5p1qs1sQn&q=${ category }&limit=10`;
@@ -9,6 +12,11 @@ export const getGifs = async( category ) => {
         title: img.title,
         url: img.images.downsized_medium.url
     }));
-    
+
     return gifs;
+}
+
+getGifs.propTypes = {
+    title: PropTypes.string.isRequired,
+    url: PropTypes.string.isRequired
 }
